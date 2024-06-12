@@ -1,10 +1,10 @@
 [Setup]
-AppName=OpenRune Launcher
-AppPublisher=OpenRune
-UninstallDisplayName=OpenRune
+AppName=SolScape Launcher
+AppPublisher=SolScape
+UninstallDisplayName=SolScape
 AppVersion=${project.version}
-AppSupportURL=https://openrune.net/
-DefaultDirName={localappdata}\OpenRune
+AppSupportURL=https://SolScape.net/
+DefaultDirName={localappdata}\SolScape
 
 ; ~30 mb for the repo the launcher downloads
 ExtraDiskSpaceRequired=30000000
@@ -14,20 +14,20 @@ PrivilegesRequired=lowest
 WizardSmallImageFile=${basedir}/app_small.bmp
 WizardImageFile=${basedir}/left.bmp
 SetupIconFile=${basedir}/app.ico
-UninstallDisplayIcon={app}\OpenRune.exe
+UninstallDisplayIcon={app}\SolScape.exe
 
 Compression=lzma2
 SolidCompression=yes
 
 OutputDir=${basedir}
-OutputBaseFilename=OpenRuneSetup32
+OutputBaseFilename=SolScapeSetup32
 
 [Tasks]
 Name: DesktopIcon; Description: "Create a &desktop icon";
 
 [Files]
-Source: "${basedir}\build\win-x86\OpenRune.exe"; DestDir: "{app}"
-Source: "${basedir}\build\win-x86\OpenRune.jar"; DestDir: "{app}"
+Source: "${basedir}\build\win-x86\SolScape.exe"; DestDir: "{app}"
+Source: "${basedir}\build\win-x86\SolScape.jar"; DestDir: "{app}"
 Source: "${basedir}\build\win-x86\launcher_x86.dll"; DestDir: "{app}"
 Source: "${basedir}\build\win-x86\config.json"; DestDir: "{app}"
 Source: "${basedir}\build\win-x86\jre\*"; DestDir: "{app}\jre"; Flags: recursesubdirs
@@ -37,23 +37,23 @@ Source: "${basedir}\app_small.bmp"; DestDir: "{app}"
 
 [Icons]
 ; start menu
-Name: "{userprograms}\OpenRune\OpenRune"; Filename: "{app}\OpenRune.exe"
-Name: "{userprograms}\OpenRune\OpenRune (configure)"; Filename: "{app}\OpenRune.exe"; Parameters: "--configure"
-Name: "{userprograms}\OpenRune\OpenRune (safe mode)"; Filename: "{app}\OpenRune.exe"; Parameters: "--safe-mode"
-Name: "{userdesktop}\OpenRune"; Filename: "{app}\OpenRune.exe"; Tasks: DesktopIcon
+Name: "{userprograms}\SolScape\SolScape"; Filename: "{app}\SolScape.exe"
+Name: "{userprograms}\SolScape\SolScape (configure)"; Filename: "{app}\SolScape.exe"; Parameters: "--configure"
+Name: "{userprograms}\SolScape\SolScape (safe mode)"; Filename: "{app}\SolScape.exe"; Parameters: "--safe-mode"
+Name: "{userdesktop}\SolScape"; Filename: "{app}\SolScape.exe"; Tasks: DesktopIcon
 
 [Run]
-Filename: "{app}\OpenRune.exe"; Parameters: "--postinstall"; Flags: nowait
-Filename: "{app}\OpenRune.exe"; Description: "&Open OpenRune"; Flags: postinstall skipifsilent nowait
+Filename: "{app}\SolScape.exe"; Parameters: "--postinstall"; Flags: nowait
+Filename: "{app}\SolScape.exe"; Description: "&Open SolScape"; Flags: postinstall skipifsilent nowait
 
 [InstallDelete]
 ; Delete the old jvm so it doesn't try to load old stuff with the new vm and crash
 Type: filesandordirs; Name: "{app}\jre"
 ; previous shortcut
-Type: files; Name: "{userprograms}\OpenRune.lnk"
+Type: files; Name: "{userprograms}\SolScape.lnk"
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{%USERPROFILE}\.openrune\repository2"
+Type: filesandordirs; Name: "{%USERPROFILE}\.SolScape\repository2"
 ; includes install_id, settings, etc
 Type: filesandordirs; Name: "{app}"
 
